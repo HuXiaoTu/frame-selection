@@ -15,6 +15,7 @@
 </template>
 <script>
 export default {
+    name: 'FrameSelection',
     props: {
         // Y轴数据
         AxisX: {
@@ -158,7 +159,7 @@ export default {
                     isMouseDown = true;
 
                     // 鼠标按下
-                    this.$emit('mousedownMethods', e);
+                    that.$emit('mousedownMethods', e);
 
                     firstTime = new Date().getTime();
                     ele.addEventListener('mousemove', moveHander)
@@ -169,7 +170,7 @@ export default {
                     isMouseDown = false;
 
                     // 鼠标抬起
-                    this.$emit('mouseupMethods', e);
+                    that.$emit('mouseupMethods', e);
 
                     // 判断书否为点击状态
                     if (lastTime - firstTime < 200) {
@@ -184,9 +185,9 @@ export default {
                     }
                 });
                 // 鼠标移出 选中离开之前的默认选中项
-                ele.addEventListener('mouseleave', function () {
+                ele.addEventListener('mouseleave', function (e) {
                     // 鼠标离开区域
-                    this.$emit('mouseleaveMethods', e);
+                    that.$emit('mouseleaveMethods', e);
 
                     // 判断是否为down 状态下移出的
                     if (isMouseDown) {

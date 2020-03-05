@@ -1,6 +1,5 @@
 # frame-selection
 > 一个vue框选功能插件，支持点击和拉框选中
-===========================
 
 ## 使用
 
@@ -77,8 +76,8 @@ maxWidth | 格子区域的最大宽度，超出产生滚动条(Number) | 500 |
 title | 功能提示信息(String) | 高度/时间 |
 AxisX | X轴方向数据列表(Array) | [01,02,03] |
 AxisY | Y轴方向数据列表(Array) | [100,200,300] |
-defaultSelectCellBox | 设置默认 已选择的格子(Array) |  |
-usableBox | 设置默认 已选择的格子(Array) | [[01,200],[02,100]] |
+defaultSelectCellBox | 设置默认 已选择的格子(Array) | [[01,100],[01,200],[01,300]] |
+usableBox | 设置默认 可选择的格子，默认全部可选(Array) | ["01,200","02,100"] |
 
 ### Methods
 
