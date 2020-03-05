@@ -40,7 +40,7 @@
     <template>
         <frame-selection :createOption="op" :AxisX="AxisX" :AxisY="AxisY" @selectCell="getData" ></frame-selection>
     </template>
-    import frame-selection from 'frame-selection'
+    import FrameSelection from 'frame-selection'
     export default {
         data() {
             return {
@@ -58,6 +58,9 @@
             getData(value){
                 console.log(value)
             }
+        },
+        components:{
+            FrameSelection,
         }
     }
 ```
@@ -99,9 +102,11 @@ mouseleaveMethods | 当鼠标离开区域时触发 | event |
 [https://github.com/HuXiaoTu/frame-selection](https://github.com/HuXiaoTu/frame-selection "GitHub")
 
 ## 目录结构描述
+```js
+    ├─assets                静态文件
+    └─frameSelection        组件所在区域
+```
 
-├─assets                静态文件
-└─frameSelection        组件所在区域
 
 
 ## V1.1.0 版本内容更新
