@@ -1,5 +1,7 @@
 # frame-selection
 > 一个vue框选功能插件，支持点击和拉框选中
+> 项目地址-[https://github.com/HuXiaoTu/frame-selection](https://github.com/HuXiaoTu/frame-selection "GitHub")
+> 欢迎留言沟通-[13676373110@163.com](13676373110@163.com)
 
 ## 使用
 
@@ -102,8 +104,8 @@ mouseleaveMethods | 当鼠标离开区域时触发 | event |
 
 ## 目录结构描述
 ```js
-    ├─assets                静态文件
-    └─frameSelection        组件所在区域
+    ├─assets                    静态文件
+    └─frameSelection            组件所在区域
 ```
 
 
