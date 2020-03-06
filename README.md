@@ -1,20 +1,24 @@
 # frame-selection
 > 一个vue框选功能插件，支持点击和拉框选中
-> 项目地址-[https://github.com/HuXiaoTu/frame-selection](https://github.com/HuXiaoTu/frame-selection "GitHub")
-> 欢迎留言沟通-[13676373110@163.com](13676373110@163.com)
+
+> [GitHub项目地址](https://github.com/HuXiaoTu/frame-selection "GitHub")
+
+> 效果演示: [https://github.com/HuXiaoTu/frame-selection](https://github.com/HuXiaoTu/frame-selection "GitHub")
+
+> 欢迎留言沟通: 13676373110@163.com
 
 ## 使用
 
-- ``` npm i frame-selection ```  //安装包资源
+- ``` npm install frame-selection ```  //安装包资源
 
 ### 全局注册方式
-- //main.js中引入
 ``` JavaScript
+    //main.js中引入
     import frame-selection from 'frame-selection'
     Vue.use(frame-selection)
 ```
-- //*.vue中 直接使用
 ``` JavaScript
+    //*.vue中 直接使用
     <frame-selection :createOption="op" :AxisX="AxisX" :AxisY="AxisY" @selectCell="getData" ></frame-selection>
     export default {
         data() {
@@ -38,13 +42,16 @@
 ```
 ### 单独使用
 ``` JavaScript
+    //*.vue中 直接使用
     <template>
         <frame-selection :createOption="op" :AxisX="AxisX" :AxisY="AxisY" @selectCell="getData" ></frame-selection>
     </template>
+    // 引入组件
     import FrameSelection from 'frame-selection'
     export default {
         data() {
             return {
+                // 参数
                 "op" : {
                     cellWidth: 17,
                     cellHeight: 17,
@@ -56,10 +63,12 @@
             }
         },
         methods:{
+            // 当选中格子时触发
             getData(value){
                 console.log(value)
             }
         },
+        // 注册组件
         components:{
             FrameSelection,
         }
@@ -70,16 +79,16 @@
 
 ### Options
 
-属性 | 说明 | 例子
--|-|-
-cellWidth | 每个小格子的宽度 (Number) | 17 |
-cellHeight | 每个小格子的高度 (Number) | 17 |
-maxWidth | 格子区域的最大宽度，超出产生滚动条(Number) | 500 |
-title | 功能提示信息(String) | 高度/时间 |
-AxisX | X轴方向数据列表(Array) | [01,02,03] |
-AxisY | Y轴方向数据列表(Array) | [100,200,300] |
-defaultSelectCellBox | 设置默认 已选择的格子(Array) | [[01,100],[01,200],[01,300]] |
-usableBox | 设置默认 可选择的格子，默认全部可选(Array) | ["01,200","02,100"] |
+属性 | 说明 | 例子| 默认值 |
+-|-|-|-
+cellWidth | 每个小格子的宽度 (Number) | 17 | 17 |
+cellHeight | 每个小格子的高度 (Number) | 17 | 17 |
+maxWidth | 格子区域的最大宽度，超出产生滚动条(Number) | 500 | 500 |
+title | 功能提示信息(String) | 高度/时间 | 无 |
+AxisX | X轴方向数据列表(Array) | [01,02,03] | 无 |
+AxisY | Y轴方向数据列表(Array) | [100,200,300] | 无 |
+defaultSelectCellBox | 设置默认 已选择的格子(Array) | [[01,100],[01,200],[01,300]] | 无 |
+usableBox | 设置默认 可选择的格子，默认全部可选(Array) | ["01,200","02,100"] | 全部可选 |
 
 ### Methods
 
@@ -100,7 +109,7 @@ mouseleaveMethods | 当鼠标离开区域时触发 | event |
 
 ## 仓库地址
 
-[https://github.com/HuXiaoTu/frame-selection](https://github.com/HuXiaoTu/frame-selection "GitHub")
+GitHub项目地址[https://github.com/HuXiaoTu/frame-selection](https://github.com/HuXiaoTu/frame-selection "GitHub")
 
 ## 目录结构描述
 ```js

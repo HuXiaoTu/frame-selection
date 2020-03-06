@@ -33,7 +33,7 @@ export default {
         },
         // 设置默认 已选择的格子
         defaultSelectCellBox: {
-            type: null,
+            type: Array,
         },
         // 设置默认 可选中的盒子
         usableBox: {
