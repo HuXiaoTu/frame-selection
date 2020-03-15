@@ -19,21 +19,20 @@
 ```
 ``` JavaScript
     //*.vue中 直接使用
-    <frame-selection :createOption="op" :AxisX="AxisX" :AxisY="AxisY" @selectCell="getData" ></frame-selection>
+    <frame-selection 
+        :AxisX="AxisX" 
+        :AxisY="AxisY" 
+        @selectCell="getData" >
+    </frame-selection>
     export default {
         data() {
             return {
-                "op" : {
-                    cellWidth: 17,
-                    cellHeight: 17,
-                    maxWidth: 500,
-                    title: '高度/时间'
-                },
                 AxisX:[1,2,3],
                 AxisY:[100,200,300]
             }
         },
         methods:{
+            // 当选中格子时触发
             getData(value){
                 console.log(value)
             }
@@ -44,20 +43,17 @@
 ``` JavaScript
     //*.vue中 直接使用
     <template>
-        <frame-selection :createOption="op" :AxisX="AxisX" :AxisY="AxisY" @selectCell="getData" ></frame-selection>
+        <frame-selection 
+            :AxisX="AxisX" 
+            :AxisY="AxisY" 
+            @selectCell="getData" >
+        </frame-selection>
     </template>
     // 引入组件
     import FrameSelection from 'frame-selection'
     export default {
         data() {
             return {
-                // 参数
-                "op" : {
-                    cellWidth: 17,
-                    cellHeight: 17,
-                    maxWidth: 500,
-                    title: '高度/时间'
-                },
                 AxisX:[1,2,3],
                 AxisY:[100,200,300]
             }
@@ -121,3 +117,5 @@ GitHub项目地址[https://github.com/HuXiaoTu/frame-selection](https://github.c
 
 ## V1.1.0 版本内容更新
 1. 增加事件回调函数
+## V1.1.9 版本内容更新
+1. 修改传参方式 优化代码

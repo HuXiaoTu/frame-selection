@@ -1,6 +1,6 @@
 <template>
     <div class="cellBox">
-        <div class="cellBoxTop">{{createOption.title}}</div>
+        <div class="cellBoxTop">{{title}}</div>
         <div class="cellBoxContetn" ref="boxHeight">
             <!-- 高度显示 -->
             <div class="cellBoxContetnLeft" ref="heightList"></div>
@@ -40,21 +40,25 @@ export default {
             type: null,
             default: 'all'
         },
-        // 默认选项设置
-        createOption: {
-            type: Object,
-            default: () => {
-                return {
-                    // 小方格宽度
-                    cellWidth: 17,
-                    // 小方格高度
-                    cellHeight: 17,
-                    // 滚动宽度
-                    maxWidth: 500,
-                    // 提示信息
-                    title: ''
-                }
-            }
+        // 小方格宽度
+        cellWidth: {
+            type: Number,
+            default: 17
+        },
+        // 小方格高度
+        cellHeight: {
+            type: Number,
+            default: 17
+        },
+        // 滚动宽度
+        maxWidth: {
+            type: Number,
+            default: 500
+        },
+        // 提示信息
+        title: {
+            type: String,
+            default: ''
         },
     },
     data() {
@@ -69,8 +73,10 @@ export default {
             let AxisX = this.AxisX;       // 时效
             let AxisY = this.AxisY;     // 高度
             let usableBox = this.usableBox              // 可选值
-            let width = this.createOption.cellWidth;                 // 格子宽度
-            let height = this.createOption.cellHeight;               // 格子高度
+            let width = this.cellWidth;                 // 格子宽度
+            let height = this.cellHeight;               // 格子高度
+
+            console.info('ws width>>>>', width);
 
             let cellBox = this.$refs.cellBox;                   // 格子盒子
             let heightList = this.$refs.heightList;             // Y轴盒子
@@ -122,7 +128,9 @@ export default {
             let bigBox = this.$refs.bigBox;
             let boxHeight = this.$refs.boxHeight;
             // 获得默认参数
-            let { cellWidth, cellHeight, maxWidth } = this.createOption;
+            let cellWidth = this.cellWidth;
+            let cellHeight = this.cellHeight;
+            let maxWidth = this.maxWidth;
 
             let width = (this.AxisX.length * cellWidth) + 2 + 'px';
             let height = (this.AxisY.length * cellHeight) + 'px';
@@ -486,7 +494,13 @@ export default {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #ccc;
 }
-body {
+.cellBox {
+    // 禁止页面选中
+    -moz-user-select: none; /*火狐*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -ms-user-select: none; /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;
     div,
     p,
     span,

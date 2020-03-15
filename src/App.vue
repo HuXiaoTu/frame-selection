@@ -1,6 +1,5 @@
 <template>
     <div id="app">
-        <span>组件测试界面</span>
         <frame-selection :AxisX="AxisX" :AxisY="AxisY" @selectCell="selectCell"></frame-selection>
     </div>
 </template>
