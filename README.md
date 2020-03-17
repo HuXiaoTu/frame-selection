@@ -3,9 +3,10 @@
 
 > [GitHub项目地址](https://github.com/HuXiaoTu/frame-selection "GitHub")
 
-> 效果演示: [https://github.com/HuXiaoTu/frame-selection](https://github.com/HuXiaoTu/frame-selection "GitHub")
-
 > 欢迎留言沟通: 13676373110@163.com
+
+## demo演示
+![](https://github.com/HuXiaoTu/frame-selection/blob/master/src/assets/frame-selection.gif)
 
 ## 使用
 
