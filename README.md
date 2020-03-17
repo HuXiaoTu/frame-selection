@@ -6,7 +6,7 @@
 > 欢迎留言沟通: 13676373110@163.com
 
 ## demo演示
-![](https://github.com/HuXiaoTu/frame-selection/blob/master/src/assets/frame-selection.gif)
+![](https://github.com/HuXiaoTu/img/blob/master/frame-selection.gif)
 
 ## 使用
 
@@ -116,7 +116,7 @@ GitHub项目地址[https://github.com/HuXiaoTu/frame-selection](https://github.c
 
 
 
-## V1.1.0 版本内容更新
+#### V1.1.0 版本内容更新
 1. 增加事件回调函数
-## V1.1.9 版本内容更新
+#### V1.1.9 版本内容更新
 1. 修改传参方式 优化代码

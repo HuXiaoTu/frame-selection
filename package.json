@@ -1,7 +1,7 @@
 {
   "name": "frame-selection",
   "description": "This is a box selection component",
-  "version": "1.1.9",
+  "version": "1.1.11",
   "author": "wangxiaoshuai",
   "Keywords": "lattice,Choice",
   "license": "MIT",
