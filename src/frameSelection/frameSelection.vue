@@ -1,15 +1,13 @@
 <template>
     <div class="cellBox">
         <div class="cellBoxTop">{{title}}</div>
-        <div class="cellBoxContetn" ref="boxHeight">
+        <div class="cellBoxContetnAuto scroll" ref="bigBox">
             <!-- 高度显示 -->
             <div class="cellBoxContetnLeft" ref="heightList"></div>
-            <div class="cellBoxContetnAuto scroll" ref="bigBox">
-                <!-- 所有的格子 -->
-                <ul class="cellBoxContetnItem" ref="cellBox"></ul>
-                <!-- 时效显示 -->
-                <div ref="prescriptionList"></div>
-            </div>
+            <!-- 所有的格子 -->
+            <ul class="cellBoxContetnItem" ref="cellBox"></ul>
+            <!-- 时效显示 -->
+            <div class="prescriptionList" ref="prescriptionList"></div>
         </div>
     </div>
 </template>
@@ -53,7 +51,12 @@ export default {
         // 滚动宽度
         maxWidth: {
             type: Number,
-            default: 500
+            default: 200
+        },
+        // 滚动高度
+        maxHeight: {
+            type: Number,
+            default: 200
         },
         // 提示信息
         title: {
@@ -75,8 +78,6 @@ export default {
             let usableBox = this.usableBox              // 可选值
             let width = this.cellWidth;                 // 格子宽度
             let height = this.cellHeight;               // 格子高度
-
-            console.info('ws width>>>>', width);
 
             let cellBox = this.$refs.cellBox;                   // 格子盒子
             let heightList = this.$refs.heightList;             // Y轴盒子
@@ -126,22 +127,23 @@ export default {
             let box = this.$refs.cellBox;
             let prescriptionList = this.$refs.prescriptionList;
             let bigBox = this.$refs.bigBox;
-            let boxHeight = this.$refs.boxHeight;
             // 获得默认参数
             let cellWidth = this.cellWidth;
             let cellHeight = this.cellHeight;
             let maxWidth = this.maxWidth;
+            let maxHeight = this.maxHeight;
 
             let width = (this.AxisX.length * cellWidth) + 2 + 'px';
             let height = (this.AxisY.length * cellHeight) + 'px';
 
-            let bigHeight = ((this.AxisY.length + 1) * cellHeight) + 4 + 'px';
-
+            let bigHeight = maxHeight - 20 + 'px';
+            // 滚动盒子
+            bigBox.style.cssText = `height:${bigHeight};width:${maxWidth}px;`;
+            // 格子盒子
             box.style.cssText = `height:${height};width:${width};`;
+            // X轴盒子
             prescriptionList.style.cssText = `width:${width};height:${cellHeight};`;
 
-            bigBox.style.cssText = `height:${bigHeight};width:${maxWidth}px;`;
-            boxHeight.style.cssText = `height:${bigHeight};`;
         },
         // 添加格子的事件监听
         addBoxSelect() {
@@ -183,11 +185,9 @@ export default {
                     // 判断书否为点击状态
                     if (lastTime - firstTime < 200) {
                         ele.removeEventListener('mousemove', moveHander);
-                        // console.log('我是点击')
                         that.selectBox(e);
 
                     } else {
-                        // console.log('我执行了框选事件');
                         that.handleSelect();
                         ele.removeEventListener('mousemove', moveHander);
                     }
@@ -396,11 +396,10 @@ export default {
     watch: {
         // 如果有默认数据 进行绘制
         defaultSelectCellBox(value) {
-            // console.log('我是添加默认active')
             this.defaultActive(value);
         },
+        // 添加可选中状态
         usableBox(value) {
-            // console.log('我是添加可选中状态')
             this.defaultBox(value)
         }
     }
@@ -419,12 +418,14 @@ export default {
         text-align: left;
         padding-left: 15px;
     }
-    .cellBoxContetn {
+    .cellBoxContetnAuto {
         position: relative;
-        overflow: hidden;
+        overflow: scroll;
         .cellBoxContetnLeft {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 50px;
-            float: left;
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
@@ -432,20 +433,18 @@ export default {
                 width: 100%;
             }
         }
-        .cellBoxContetnAuto {
-            float: left;
-            overflow: hidden;
-            overflow-x: scroll;
-            .cellBoxContetnItem {
-                width: 189px;
-                display: flex;
-                flex-wrap: wrap;
-                top: 0;
-                left: 0;
-                border: 1px solid black;
-                border-bottom: none;
-                border-right: none;
-            }
+        .cellBoxContetnItem {
+            width: 189px;
+            display: flex;
+            flex-wrap: wrap;
+            top: 0;
+            left: 50px;
+            border: 1px solid black;
+            border-bottom: none;
+            border-right: none;
+        }
+        .prescriptionList {
+            margin-left: 50px;
         }
     }
 }
@@ -476,8 +475,13 @@ export default {
 
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
 .scroll::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+}
+
+// 相交处 白色方块
+.scroll::-webkit-scrollbar-corner {
     background-color: transparent;
 }
 

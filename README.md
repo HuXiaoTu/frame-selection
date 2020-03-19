@@ -80,7 +80,8 @@
 -|-|-|-
 cellWidth | 每个小格子的宽度 (Number) | 17 | 17 |
 cellHeight | 每个小格子的高度 (Number) | 17 | 17 |
-maxWidth | 格子区域的最大宽度，超出产生滚动条(Number) | 500 | 500 |
+maxWidth | 格子区域的最大宽度，超出产生滚动条(Number) | 200 | 200 |
+maxHeight | 格子区域的最大高度，超出产生滚动条(Number) | 200 | 200 |
 title | 功能提示信息(String) | 高度/时间 | 无 |
 AxisX | X轴方向数据列表(Array) | [01,02,03] | 无 |
 AxisY | Y轴方向数据列表(Array) | [100,200,300] | 无 |
@@ -120,3 +121,6 @@ GitHub项目地址[https://github.com/HuXiaoTu/frame-selection](https://github.c
 1. 增加事件回调函数
 #### V1.1.9 版本内容更新
 1. 修改传参方式 优化代码
+#### V1.1.15 版本内容更新
+1. 优化数据结构
+2. 增加最大高度定义参数
