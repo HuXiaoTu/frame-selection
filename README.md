@@ -126,5 +126,5 @@ GitHub项目地址[https://github.com/HuXiaoTu/frame-selection](https://github.c
 #### V1.1.15 版本内容更新
 1. 优化数据结构
 2. 增加最大高度定义参数
-#### V1.1.16 版本内容更新
+#### V1.1.17 版本内容更新
 1. 增加清空按钮&&清空事件
