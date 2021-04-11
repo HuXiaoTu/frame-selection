@@ -1,6 +1,11 @@
 <template>
     <div class="cellBox">
-        <div class="cellBoxTop">{{title}}</div>
+        <div class="cellBoxTop">
+            <!-- 标题 -->
+            <div class="cellBoxTitle">{{title}}</div>
+            <!-- 清空按钮 -->
+            <div class="clearBtn" v-if="clearBtn" @click="$emit('clearAll'),defaultActive([])">清空</div>
+        </div>
         <div class="cellBoxContetnAuto scroll" ref="bigBox">
             <!-- 高度显示 -->
             <div class="cellBoxContetnLeft" ref="heightList"></div>
@@ -63,6 +68,11 @@ export default {
             type: String,
             default: ''
         },
+        // 是否显示清空按钮
+        clearBtn: {
+            type: Boolean,
+            default: false,
+        }
     },
     data() {
         return {
@@ -412,11 +422,25 @@ export default {
     flex-direction: column;
     font-size: 12px;
     .cellBoxTop {
-        height: 20px;
-        width: 100%;
-        font-size: 14px;
-        text-align: left;
-        padding-left: 15px;
+        display: flex;
+        .cellBoxTitle {
+            height: 20px;
+            flex: 1;
+            font-size: 14px;
+            text-align: left;
+            padding-left: 15px;
+        }
+        .clearBtn {
+            width: 35px;
+            cursor: pointer;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            color: #606266;
+        }
+        .clearBtn:hover {
+            color: #3a8ee6;
+            border-color: #3a8ee6;
+        }
     }
     .cellBoxContetnAuto {
         position: relative;

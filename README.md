@@ -6,7 +6,7 @@
 > 欢迎留言沟通: 13676373110@163.com
 
 ## demo演示
-![](https://github.com/HuXiaoTu/img/blob/master/frame-selection.gif)
+![](http://www.qxxwss.cn/frame-selection.gif)
 
 ## 使用
 
@@ -87,6 +87,7 @@ AxisX | X轴方向数据列表(Array) | [01,02,03] | 无 |
 AxisY | Y轴方向数据列表(Array) | [100,200,300] | 无 |
 defaultSelectCellBox | 设置默认 已选择的格子(Array) | [[01,100],[01,200],[01,300]] | 无 |
 usableBox | 设置默认 可选择的格子，默认全部可选(Array) | ["01,200","02,100"] | 全部可选 |
+clearBtn | 是否显示清空按钮 | false | false
 
 ### Methods
 
@@ -96,6 +97,7 @@ selectCell | 当参数被选中或者取消时触发 | 当前选中的值(Array)
 mousedownMethods | 当鼠标按下时触发 | event |
 mouseupMethods | 当鼠标抬起时触发 | event |
 mouseleaveMethods | 当鼠标离开区域时触发 | event |
+clearAll | 点击清空按钮触发 | 无
 
 ## 二次开发
 
@@ -124,3 +126,5 @@ GitHub项目地址[https://github.com/HuXiaoTu/frame-selection](https://github.c
 #### V1.1.15 版本内容更新
 1. 优化数据结构
 2. 增加最大高度定义参数
+#### V1.1.16 版本内容更新
+1. 增加清空按钮&&清空事件

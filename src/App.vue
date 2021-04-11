@@ -1,6 +1,13 @@
 <template>
     <div id="app">
-        <frame-selection :AxisX="AxisX" :AxisY="AxisY" @selectCell="selectCell"></frame-selection>
+        <frame-selection
+            @clearAll="clearAll"
+            title="标题"
+            :AxisX="AxisX"
+            :AxisY="AxisY"
+            clearBtn
+            @selectCell="selectCell"
+        ></frame-selection>
     </div>
 </template>
 
@@ -18,6 +25,10 @@ export default {
         // 接受到的选中值
         selectCell(value) {
             console.info('ws value>>>>', value);
+        },
+        // 清空操作
+        clearAll() {
+            console.info('ws 清空操作>>>>');
         }
     },
     components: {
@@ -37,7 +48,7 @@ html {
 #app {
     width: 100%;
     height: 100%;
-    background-color: #42b983;
+    // background-color: #42b983;
     text-align: center;
 }
 </style>
